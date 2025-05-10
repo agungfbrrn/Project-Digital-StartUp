@@ -1,0 +1,210 @@
+.reviews {
+  max-width: 800px;
+  margin: 0 auto;
+  background: url('../../../public/img/gambar6.png') no-repeat center center/cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  width: 100%; // Fleksibel
+  min-width: 100%; // Tidak terlalu kecil
+  max-height: 500px; // Batas tinggi
+  overflow-y: auto; // Scroll vertikal jika penuh
+  overflow-x: hidden; // Hilangkan scroll horizontal
+
+  h2 {
+    position: sticky;
+    top: 0;
+    background: transparent; /* Warna semi-transparan untuk efek kaca */
+    padding: 10px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #e0e0e0 !important; /* Warna teks putih agar kontras */
+    font-size: 1.5rem;
+    z-index: 10; /* Pastikan tetap di atas elemen lain */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Batas bawah transparan */
+    backdrop-filter: blur(10px); /* Efek blur untuk efek kaca */
+    -webkit-backdrop-filter: blur(10px); /* Dukungan untuk Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut agar lebih menarik */
+    border-radius: 8px; /* Sedikit rounded agar lebih modern */
+    
+    word-wrap: break-word; /* Memastikan teks panjang turun ke bawah */
+    overflow-wrap: break-word; /* Alternatif untuk dukungan lebih luas */
+    white-space: normal; /* Izinkan teks turun ke baris berikutnya */
+    display: block; /* Pastikan sebagai blok agar turun ke bawah */
+    max-width: 100%; /* Pastikan tidak melebihi lebar kontainer */
+}
+
+  
+
+  // FORM AGAR TETAP DI BAWAH
+  .add {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2); // Warna transparan untuk efek kaca
+    padding: 16px;
+    border-top: 2px solid rgba(255, 255, 255, 0.3); // Transparan agar terlihat batasnya
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); // Bayangan agar lebih floating
+    backdrop-filter: blur(10px); // Efek blur untuk efek kaca
+    -webkit-backdrop-filter: blur(10px); // Dukungan untuk Safari
+    border-radius: 10px 10px 0 0; // Membuat bagian atas rounded agar lebih smooth
+    z-index: 100;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+
+    h3 {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 8px;
+      
+      word-wrap: break-word; /* Memastikan teks panjang turun ke bawah */
+      overflow-wrap: break-word; /* Alternatif untuk dukungan lebih luas */
+      white-space: normal; /* Izinkan teks turun ke baris berikutnya */
+      display: block; /* Pastikan elemen tetap dalam blok */
+      max-width: 100%; /* Mencegah teks keluar dari batas elemen induk */
+  }
+  
+
+    .addForm {
+      display: flex;
+      flex-direction: column;
+
+      .addFormRow {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        
+        // TEXTAREA LEBIH PROPORSIONAL
+        textarea {
+          flex: 1;
+          min-height: 80px;
+          padding: 12px;
+          font-size: 1rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          resize: none; /* Mencegah pengguna mengubah ukuran secara manual */
+          
+          word-wrap: break-word; /* Memastikan kata panjang terpotong dengan benar */
+          overflow-wrap: break-word; /* Alternatif untuk dukungan lebih luas */
+          white-space: pre-wrap; /* Memastikan teks tetap rapi dan turun jika panjang */
+      }
+      
+        select {
+          max-width: 120px;
+          padding: 8px;
+        }
+      }
+
+      // BAGIAN RATING DAN BUTTON
+      .formFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .rating {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #555;
+          flex-shrink: 0; // Supaya tidak mengecil
+        }
+
+        button {
+          flex: 1;
+          max-width: 200px;
+          padding: 12px;
+          font-size: 1rem;
+          color: #fff;
+          background-color: #007bff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+
+  .reviewItem {
+    padding: 16px;
+    margin-bottom: 12px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    p {
+      margin: 0;
+      font-size: 1rem;
+      color: #555;
+      
+      word-wrap: break-word; /* Memastikan kata panjang terpotong dengan benar */
+      overflow-wrap: break-word; /* Alternatif untuk dukungan lebih luas */
+      white-space: normal; /* Memastikan teks turun ke bawah jika panjang */
+  }
+  
+
+  .reviewMeta {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #777;
+    
+    word-wrap: break-word; /* Memastikan kata panjang terpotong dengan benar */
+    overflow-wrap: break-word; /* Alternatif untuk dukungan lebih luas */
+    white-space: normal; /* Memastikan teks turun ke bawah jika panjang */
+}
+
+
+    button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      color: #fff;
+      background-color: #dc3545;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #a71d2a;
+      }
+    }
+  }
+
+  // RESPONSIVE UNTUK LAYAR KECIL
+  @media (max-width: 600px) {
+    .add {
+      padding: 12px;
+    }
+
+    .addFormRow {
+      flex-direction: column;
+
+      textarea {
+        width: 100%;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+
+    .formFooter {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

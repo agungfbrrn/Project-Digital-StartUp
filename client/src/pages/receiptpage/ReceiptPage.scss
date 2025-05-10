@@ -1,0 +1,141 @@
+.receipt {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 700px;
+  margin: 30px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Back Button Styling */
+.receipt img {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(48%) sepia(83%) saturate(612%) hue-rotate(360deg);
+}
+
+/* Title */
+.receipt h1 {
+  color: #ff6600;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Order Details Container */
+.receipt-details {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Order Image */
+.receipt-details img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Order Information */
+.receipt-details p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.receipt-details strong {
+  color: #333;
+}
+
+.receipt-details p span {
+  color: #555;
+}
+
+/* Status */
+.receipt-details .status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.receipt-details .status-completed {
+  color: green;
+  font-weight: bold;
+}
+
+.receipt-details .status-canceled {
+  color: red;
+  font-weight: bold;
+}
+
+/* Button Styling */
+.receipt button {
+  padding: 12px 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.receipt button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.receipt button:hover:not(:disabled) {
+  background-color: #e65c00;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .receipt {
+    padding: 15px;
+  }
+
+  .receipt h1 {
+    font-size: 20px;
+  }
+
+  .receipt-details {
+    padding: 15px;
+  }
+
+  .receipt button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .receipt {
+    padding: 10px;
+  }
+
+  .receipt h1 {
+    font-size: 18px;
+  }
+
+  .receipt-details {
+    padding: 10px;
+  }
+
+  .receipt button {
+    padding: 10px;
+  }
+}

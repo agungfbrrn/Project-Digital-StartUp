@@ -1,0 +1,253 @@
+
+
+
+
+// Variabel untuk warna, ukuran, dan efek yang digunakan pada navbar
+$primary-color: #0066ff;
+$secondary-color: #333;
+$background-color-active: rgba(255, 255, 255, 0.6);
+$box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+$button-hover-color: #45a049;
+$font-size-base: 14.5px;
+$font-size-logo: 30px;
+$font-size-link: 18px;
+$transition-duration: 0.3s;
+
+// Mixins untuk transisi dan box-shadow
+@mixin transition($properties...) {
+  transition: $properties $transition-duration ease-in-out;
+}
+
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+// Keyframes animasi neon
+
+
+.navbar {
+  position: sticky;
+  top: 0;
+  scroll-behavior: smooth;
+  font-family: "Ghost Theory 2", sans-serif;
+  z-index: 1000;
+  background-color: $primary-color;
+  backdrop-filter: blur(10px);
+  @include box-shadow($box-shadow);
+  @include transition(background-color, color);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+    animation: neonMove 3s linear infinite;
+  }
+
+  &.active {
+    background-color: $background-color-active;
+    color: $secondary-color;
+
+    .logo {
+      .text {
+        color: $primary-color;
+        font-family: "Ghost Theory 2", sans-serif;
+        font-size: 30px;
+        
+      }
+    }
+
+    .links {
+      span, a {
+        color: $secondary-color;
+        
+      }
+    }
+
+    .user {
+      color: $secondary-color;
+    }
+
+    .menu {
+      .link {
+        color: $secondary-color;
+      }
+    }
+
+    @include box-shadow($box-shadow); // menjaga konsistensi shadow saat aktif
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    .text {
+      font-size: $font-size-logo;
+      font-weight: bold;
+      color: #fff;
+      
+    }
+
+    .dot {
+      color: #1dbf73;
+      font-size: 50px;
+      margin-left: 0px;
+      margin-top: -20px;
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    span, a {
+      font-size: $font-size-link;
+      color:#fff;
+      text-decoration: none;
+      cursor: pointer;
+      @include transition(color, background-color);
+
+      &:hover {
+        color: $primary-color;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+      }
+    }
+    .chat-admin {
+      margin-right: 15px;
+    }
+    a
+    .chat-icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0px 0px 0px 2px rgba(234,220,220,0.84);
+        
+      }
+
+      .options {
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        background-color: white;
+        @include box-shadow($box-shadow);
+        border-radius: 5px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+
+        .link {
+          font-size: 14px;
+          color: $secondary-color;
+          text-decoration: none;
+          padding: 8px;
+          border-radius: 5px;
+
+          &:hover {
+            background-color: $primary-color;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  hr {
+    margin: 10px 0;
+    border: 0.5px solid #f0f0f0;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: $font-size-base;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    @include transition(background-color);
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .link {
+      font-size: $font-size-base;
+      color: $secondary-color;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      @include transition(background-color, color);
+
+      &:hover {
+        background-color: $primary-color;
+        color: white;
+      }
+    }
+  }
+
+  .menuLink {
+    padding: 10px 15px;
+  }
+
+  // Responsivitas Mobile
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .links {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      color: $primary-color;
+    }
+  }
+}

@@ -1,0 +1,308 @@
+.gigCard {
+  position: relative;
+  border: 1px solid #e1e1e1;
+  border-radius: 3px;
+  background-color: #fff;
+  scroll-behavior: smooth;
+  transition: transform 0.3s ease-out, opacity 0.2s ease-in-out;
+  margin-bottom: 0px;
+  word-wrap: break-word; /* Memastikan teks panjang turun ke bawah */
+  overflow-wrap: break-word; /* Alternatif untuk browser lain */
+  text-overflow: ellipsis; /* Potong teks dengan "..." jika terlalu panjang */
+  white-space: normal; /* Pastikan teks tidak tetap dalam satu baris */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  will-change: transform, opacity; /* Optimasi performa */
+  
+  
+  /* Hover effect */
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    opacity: 0.98;
+  }
+}
+
+/* Image container */
+.gigCard-coverContainer {
+  position: relative;
+  width: 320px;
+  height: 180px;  /* Fixed height for consistent aspect ratio */
+  overflow: hidden;
+  display: block;
+  scroll-behavior: smooth;
+
+}
+
+.gigCard-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Ensures the image always covers the container proportionally */
+  object-position: center;  /* Keeps the focus centered for both vertical and horizontal images */
+  transition: transform 0.5s ease, filter 0.4s ease-in-out;
+  filter: brightness(85%) blur(4px);
+  border-bottom: 1px solid #e1e1e1;
+}
+.gigCard-cover[data-loaded="true"] {
+  filter: brightness(100%) blur(0);
+  opacity: 1;
+}
+.gigCard:hover .gigCard-cover {
+  transform: scale(1.05);  /* Slightly less scaling for smoother effect */
+  filter: brightness(100%);
+}
+
+/* User Info Section */
+.gigCard-user {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Memastikan teks turun jika panjang */
+  max-width: 90%; /* Batasi lebar agar tidak keluar dari card */
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 6px 10px;
+  border-radius: 18px;
+  backdrop-filter: blur(6px);
+  z-index: 1;
+  overflow-wrap: break-word; /* Pastikan teks panjang turun */
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+
+.gigCard-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.gigCard-user span {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  display: block; /* Pastikan teks bisa turun ke bawah */
+  overflow-wrap: break-word; /* Pastikan teks panjang turun */
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%; /* Batasi agar tidak keluar dari card */
+}
+
+
+/* Features Section */
+.gigCard-features {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-wrap: wrap; /* Memastikan teks turun ke bawah jika panjang */
+  max-width: 90%; /* Batasi lebar agar tidak keluar dari card */
+  gap: 8px;
+  z-index: 1;
+  overflow-wrap: break-word; /* Pastikan teks panjang turun */
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.gigCard-feature {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.4s ease, transform 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Tampilkan "..." jika teks terlalu panjang */
+  text-align: center;
+}
+
+
+.gigCard-feature:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Card Info Section */
+.gigCard-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px 24px;
+  height: 220px;
+  flex-grow: 1;
+  overflow-wrap: break-word; /* Memastikan teks panjang turun */
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+
+.gigCard-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  line-height: 1.4;
+  transition: color 0.4s ease, transform 0.3s ease;
+  word-wrap: break-word; /* Memastikan teks panjang turun */
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%; /* Mencegah teks keluar dari batas */
+}
+
+
+.gigCard-title:hover {
+  color: #e67e22;
+  transform: translateX(6px);
+}
+
+.gigCard-desc {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 12px;
+  flex-grow: 1;
+  line-height: 1.6;
+  max-width: 270px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: box; /* Fallback untuk standar */
+  -webkit-box-orient: vertical;
+  box-orient: vertical; /* Properti standar */
+  -webkit-line-clamp: 2;
+  line-clamp: 2; /* Properti standar */
+  text-overflow: ellipsis;
+  max-height: calc(1.6em * 2); /* Sesuaikan dengan line-height * jumlah baris */
+}
+
+.gigCard-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Mengganti margin-right agar lebih fleksibel */
+  margin-bottom: 12px;
+  flex-wrap: wrap; /* Pastikan elemen turun ke bawah jika tidak muat */
+
+
+.gigCard-star {
+  width: 18px;
+  flex-shrink: 0; /* Mencegah ikon bintang mengecil saat container menyusut */
+}
+
+
+  span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f1c40f;
+    white-space: nowrap; /* Mencegah teks terpotong atau pindah baris */
+  flex-shrink: 0; /* Mencegah angka rating mengecil jika container mengecil */
+  }
+}
+.gigCard-divider {
+  border: none;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.15); /* Transparan tapi lebih tebal */
+  margin: 12px 0;
+}
+
+.gigCard-price {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  span {
+    font-size: 13px;
+    color: #999;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e67e22;
+    margin: 0;
+  /* Tentukan lebar maksimal agar tidak terlalu melebar */
+    
+    /* Menangani teks panjang agar tidak keluar */
+    word-wrap: break-word; /* Membungkus kata jika diperlukan */
+    overflow-wrap: break-word; /* Membungkus kata secara otomatis */
+    white-space: normal; /* Memastikan teks dibungkus */
+    transition: transform 0.4s ease, color 0.4s ease;
+    overflow: hidden; /* Menyembunyikan teks yang melebihi batas */
+    text-overflow: ellipsis; /* Menampilkan "..." jika teks terpotong */
+    max-width: 200px; /* Sesuaikan lebar maksimum sesuai kebutuhan */
+}
+
+
+  h2:hover {
+    transform: scale(1.05);
+    color: #d35400;
+  }
+}
+
+/* Mobile-responsive adjustments */
+@media (max-width: 768px) {
+  .gigCard {
+    width: 100%;
+    margin: 16px 0;
+    flex-direction: column;
+  }
+
+  .gigCard-cover {
+    height: 180px;
+  }
+
+  .gigCard-info {
+    padding: 16px;
+  }
+
+  .gigCard-title {
+    font-size: 14px;
+  }
+
+  .gigCard-desc {
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .gigCard-price h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gigCard-user {
+    bottom: 8px;
+    left: 8px;
+    padding: 6px;
+  }
+
+  .gigCard-feature {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .gigCard-title {
+    font-size: 14px;
+  }
+
+  .gigCard-desc {
+    font-size: 12px;
+  }
+
+  .gigCard-price h2 {
+    font-size: 16px;
+  }
+}

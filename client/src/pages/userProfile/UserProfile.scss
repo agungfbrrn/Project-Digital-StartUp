@@ -1,0 +1,118 @@
+.userProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../../../public/img/gambar6.png') no-repeat center center/cover;
+  padding: 20px;
+  
+  &__container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  &__heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  &__pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__score {
+    background: rgba(192, 26, 81, 0.555);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  &__details {
+    text-align: left;
+    margin-top: 15px;
+    
+    p {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #fff;
+      
+      strong {
+        color: khaki;
+      }
+    }
+  }
+
+  &__button {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Animasi masuk (fadeIn)
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsif untuk layar kecil
+@media (max-width: 600px) {
+  .userProfile__container {
+    padding: 20px;
+  }
+  
+  .userProfile__pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .userProfile__button {
+    width: 100%;
+  }
+}

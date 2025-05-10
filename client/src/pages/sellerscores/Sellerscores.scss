@@ -1,0 +1,134 @@
+.sellerScores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a); // Warna gelap untuk kesan kompetitif
+  
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      background: linear-gradient(135deg, #ffffff, #f7f7f7);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(255, 215, 0, 0.5);
+      animation: fadeInZoom 1s ease-in-out;
+      border: 5px solid;
+      border-image: linear-gradient(135deg, #ffcc00, #ff6600) 1;
+      max-height: 600px; 
+      overflow-y: auto; 
+      scroll-behavior: smooth; 
+      
+      h1 {
+        text-align: center;
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: #222;
+        margin-bottom: 1.8rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.8);
+      }
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        border-radius: 10px;
+        animation: slideUp 1s ease-in-out;
+        overflow: hidden;
+  
+        thead {
+          background: linear-gradient(135deg, #ffcc00, #ff6600);
+          color: white;
+          
+          th {
+            padding: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-align: center;
+            border-bottom: 4px solid #fff;
+          }
+        }
+  
+        tbody {
+          tr {
+            transition: all 0.3s ease-in-out;
+            &:nth-child(even) {
+              background-color: #fff3d6;
+            }
+            &:hover {
+              background-color: #ffdd66;
+              transition: background 0.3s ease-in-out;
+              transform: scale(1.05);
+              box-shadow: 0px 6px 16px rgba(255, 165, 0, 0.7);
+            }
+            td {
+              padding: 1.2rem;
+              border-bottom: 2px solid #ddd;
+              font-size: 1.1rem;
+              color: #444;
+              text-align: center;
+              font-weight: 600;
+              &:first-child {
+                font-weight: 900;
+                color: #ff6600;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+              }
+              img {
+                transition: transform 0.3s ease-in-out;
+                &:hover {
+                  transform: rotate(10deg) scale(1.15);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* ✨ Animasi */
+  @keyframes fadeInZoom {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* 📱 Responsiveness */
+  @media (max-width: 768px) {
+    .sellerScores {
+      padding: 1.2rem;
+      .container {
+        padding: 1.5rem;
+        h1 { font-size: 2.3rem; }
+        table {
+          font-size: 1rem;
+          thead th { font-size: 1.1rem; }
+          tbody td { padding: 1rem; }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sellerScores {
+      padding: 0.8rem;
+      .container {
+        padding: 1rem;
+        h1 { font-size: 2rem; }
+        table {
+          display: block;
+          overflow-x: auto;
+          thead th { font-size: 1rem; }
+          tbody td { font-size: 0.9rem; padding: 0.8rem; }
+        }
+      }
+    }
+  }
+  

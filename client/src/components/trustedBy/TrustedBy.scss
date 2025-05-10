@@ -1,0 +1,121 @@
+// Warna utama
+$primary-color: #00796b;
+$secondary-color: #004d40;
+$bg-gradient-start: #fdfdfd;
+$bg-gradient-end: #f9f9f9;
+
+// Container utama
+.trusted-container {
+  width: 100%;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
+// Tombol Toggle
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  top: -40px; // Lebih dekat agar tidak terlalu jauh
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  .toggle-icon {
+    width: 28px; // Sedikit diperkecil
+    height: auto;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+}
+
+// Animasi buka/tutup konten
+.trusted-content {
+  transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  max-height: 500px;
+  opacity: 1;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &.closed {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+// Kontainer TrustedBy
+.trustedBy {
+  background-color: #cecece;
+  scroll-behavior: smooth;
+  padding: 15px;
+  box-shadow: 0px -10px 15px -10px rgba(0, 0, 0, 0.5) inset;
+  width: 100%;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $secondary-color;
+    margin-bottom: 20px;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; // Jarak antara gambar
+  }
+
+  .logo-img,
+  .logo-img2 {
+    width: 120px; // Sedikit diperkecil agar lebih fleksibel
+    max-width: 100%;
+    height: auto;
+    opacity: 50;
+    object-fit: contain;
+  }
+}
+
+// Responsif untuk perangkat kecil
+@media (max-width: 768px) {
+  .trustedBy {
+    width: 95%;
+    padding: 20px;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  .toggle-icon {
+    width: 24px; // Lebih kecil di perangkat kecil
+  }
+
+  .logo-container {
+    flex-direction: column; // Susun vertikal di layar kecil
+  }
+}

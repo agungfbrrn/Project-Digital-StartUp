@@ -1,0 +1,101 @@
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  position: relative;
+  overflow: hidden;
+  background: url('../../../public/img/gambar1.jpg') no-repeat center center;
+  background-size: cover; // Background gambar penuh
+  border-radius: 0px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+
+  .container {
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    position: relative;
+    padding: 20px;
+    backdrop-filter: blur(12px) brightness(1.1); // Efek kaca mengkilap
+    background: rgba(255, 255, 255, 0.2); // Transparan putih
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  }
+
+  .slide-item {
+    padding: 0px; // Memberikan jarak antar slide
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05); // Efek hover untuk memperbesar
+    }
+  }
+
+  // Styling untuk slider
+  .slick-slider {
+    position: relative;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .slick-dots {
+    bottom: -25px;
+    li {
+      button:before {
+        color: #bbb;
+        font-size: 12px;
+      }
+      &.slick-active button:before {
+        color: #4A90E2; // Biru modern
+        font-size: 14px;
+      }
+    }
+  }
+
+  // Efek glossy ringan tanpa blur
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+  }
+
+  // Responsif
+  @media (max-width: 1024px) {
+    .container {
+      width: 95%;
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 10px;
+    }
+
+    .slick-prev,
+    .slick-next {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
